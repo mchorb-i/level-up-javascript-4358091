@@ -16,7 +16,36 @@
 
   <script>
     // Write your code here
-    
+    function clock() {
+      const clockNode = document.querySelector('#clock');
+
+      let hours = 0;
+      let minutes = 0;
+      let seconds = 0;
+
+      function showTime() {
+        if (seconds < 59) {
+          seconds++;
+        } else if (seconds === 59) {
+          seconds = 0;
+          minutes++;
+        }
+
+        if (minutes === 60) {
+          minutes = 0;
+          hours++;
+        }
+
+        if (hours === 24) {
+          hours = 0;
+        }
+        clockNode.textContent = `${hours < 10 ? '0' + hours : hours} : ${minutes < 10 ? '0' + minutes : minutes} : ${seconds < 10 ? '0' + seconds : seconds}`;
+      }
+
+      setInterval(showTime, 1000);
+    }
+    clock();
+
   </script>
 </body>
 

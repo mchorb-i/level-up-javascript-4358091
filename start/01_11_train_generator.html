@@ -16,6 +16,30 @@
 
   <script>
     // Write your code here
+    const btn = document.getElementById('next-stop');
+    btn.addEventListener('click', showNextTrainStation);
+
+    function* nextStopGeneratorFunction () {
+      yield "Poughkeepsie";
+      yield "Newburgh";
+      yield "Peekskill";
+      yield "Yonkers";
+      yield "Bronx";
+      yield "Grand Central";
+    }
+    const nextStopGen = nextStopGeneratorFunction();
+
+    function showNextTrainStation() {
+      let stop = nextStopGen.next();
+      if (!stop.done) {
+        console.log(stop.value)
+      } else {
+        console.log('We made it!');
+        btn.setAttribute('disabled', true);
+      }
+        
+    }
+
 
   </script>
 </body>

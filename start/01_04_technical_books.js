@@ -31,3 +31,20 @@ class Book {
 }
 
 // Write your code here
+class TechnicalBook extends Book {
+  constructor(title, author, ISBN, numCopies, edition) {
+    
+    super(title, author, ISBN, numCopies);
+    this.edition = edition;
+  }
+
+  // Method
+  getEdition() {
+    return `The current edition of this book is ${this.edition}`;
+  }
+}
+
+const jsForDummiesBook = new TechnicalBook('JS for dummies', 'unknown', 123457, 5, 2);
+
+console.log(jsForDummiesBook.availability);
+console.log(jsForDummiesBook.getEdition());

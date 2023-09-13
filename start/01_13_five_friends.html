@@ -16,6 +16,30 @@
 
   <script>
     // Write your code here
+
+    async function getFriends() {
+      const response = await fetch('https://randomuser.me/api/?results=5');
+      const friends = await response.json();
+      console.log(friends);
+      showFriendsList(friends.results);
+    }
+
+    function showFriendsList(friends) {
+      const divNode = document.getElementById('timeline');
+      friends.forEach((friend) => {
+        const friendImg = document.createElement('img');
+        friendImg.src = friend.picture.medium;
+        divNode.appendChild(friendImg);
+      });
+      // for (let i = 0; i < friends.length; i++) {
+      //   const friendData = friends[i];
+      //   const childDiv = document.createElement('div');
+      //   childDiv.textContent = `${i + 1}. ${friendData.name.first} ${friendData.name.last}`;
+      //   divNode.appendChild(childDiv);
+      // }
+    }
+
+    getFriends();
     
   </script>
 </body>

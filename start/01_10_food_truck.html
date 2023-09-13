@@ -15,9 +15,28 @@
   <ul id="combined-menu"></ul>
 
   <script>
-    // Write your code here
+    function getCombinedMenu(menus) {
+      const flatMenus = menus.flat();
+      
+      const combinedMenu = new Set();
+      flatMenus.forEach(dish => combinedMenu.add(dish));
+      
+      const combinedMenuNode = document.getElementById('combined-menu');
+      combinedMenu.forEach(dish => {
+        let liNode = document.createElement('li');
+        liNode.textContent = dish;
+        combinedMenuNode.appendChild(liNode);
+      });
+    }
 
+    const vendor1 = ['Pizza', 'Pasta'];
+    const vendor2 = ['Pizza', 'Calzone'];
+    const vendor3 = ['Lobster'];
+    const vendor4 = ['Calzone'];
+
+    getCombinedMenu([vendor1, vendor2, vendor3, vendor4]);
   </script>
 </body>
 
 </html>
+

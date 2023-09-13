@@ -35,6 +35,23 @@
     ]
     // Write your code here
 
+    function showVegetarianDishes (menu) {
+      // Get the vegetarian dishes from the menu
+      const vegetarianMenu = menu.filter(dish => dish.isVegetarian);
+
+      // Get the dom element where the vegetarian menu will be displayed
+      const domMenu = document.getElementById('menu');
+      vegetarianMenu.forEach(dish => {
+        // Create an <li> element
+        const liDish = document.createElement('li');
+        // Set the text to be displayed
+        liDish.appendChild(document.createTextNode(`${dish.name}`));
+        // Add the <li> element to the <ul> menu element
+        domMenu.appendChild(liDish);
+      });
+    }
+    
+    showVegetarianDishes(menu);
   </script>
 </body>
 
